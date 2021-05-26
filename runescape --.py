@@ -112,7 +112,7 @@ def locationarena():
 
 
 
-name = input("enter your name ")#only show if no save file
+name = input("enter your name ")#only show if no save file kapp
 save.write(name)
 save.close()
 print("In this game you train skills in various locations. where would you like to go (type GO TO X) ")
