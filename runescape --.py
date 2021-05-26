@@ -4,7 +4,7 @@ from random import *
 #import shit
 
 #skills
-woodcutting = 1
+woodcutting =int(1)
 woodcuttingexp = 1
 fishing = 1
 fishingexp = 1
@@ -35,12 +35,16 @@ def wood_level_up():
     if woodcuttingexp >= 10:
         global woodcutting
         woodcutting = woodcutting + 1
-        skills = open("skills.txt","a")
+        print("WOODLEVEL DAWDAWDWDAWD "+str(woodcutting))
+        skills = open("skills.txt","w")
         skills.write(str(woodcutting))
         skills.close()        
 
 def locationforest():
     if location== "forest":
+        skills = open("locations.txt","r")
+        file_contents = skills.read()
+        skills.read
         print("you arrive at the forest" )
         print("woodcutting level = "+str(woodcutting))
         axe = input("what do you want to do? (cut tree, collect wood) ")
@@ -61,7 +65,7 @@ def locationforest():
                 print(str(woodcutting_exp_random)+" XP earned")
                 print("total level: "+str(woodcutting))
                 wood_level_up()
-                exp = open("xp.txt","a")
+                exp = open("xp.txt","w")
                 exp.write(str(woodcuttingexp))
                 exp.close()
                 keep = input("keep training? (n/y) ")
@@ -72,7 +76,7 @@ def locationforest():
             
                 
                 
-            
+            #JESUS CHRIST THIS IS MESSY PLZ FIX ME 
             
             
 
