@@ -10,6 +10,8 @@ fishing = 1
 fishingexp = 1
 strength = 1
 strengthexp = 1
+save = open("name.txt","a")
+
 
 
 # formula for skills = level / 0.75 = the chance of something working EG. doing damage
@@ -30,9 +32,12 @@ def location_select():
     locationarena()    
 
 def wood_level_up():
-    if woodcuttingexp == 100:
+    if woodcuttingexp >= 10:
+        global woodcutting
         woodcutting = woodcutting + 1
-        
+        skills = open("skills.txt","a")
+        skills.write(str(woodcutting))
+        skills.close()        
 
 def locationforest():
     if location== "forest":
@@ -50,12 +55,15 @@ def locationforest():
                 print("you did :"+str(damage)+" damage")
             else:
                 print("Tree cut down!")
-                
                 woodcutting_exp_random = randint(1,30)
                 global woodcuttingexp 
                 woodcuttingexp = woodcuttingexp + woodcutting_exp_random
                 print(str(woodcutting_exp_random)+" XP earned")
                 print("total level: "+str(woodcutting))
+                wood_level_up()
+                exp = open("xp.txt","a")
+                exp.write(str(woodcuttingexp))
+                exp.close()
                 keep = input("keep training? (n/y) ")
                 if keep == "y":
                     locationforest()
@@ -101,6 +109,8 @@ def locationarena():
 
 
 name = input("enter your name ")#only show if no save file
+save.write(name)
+save.close()
 print("In this game you train skills in various locations. where would you like to go (type GO TO X) ")
  
 
